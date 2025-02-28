@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>handlevogn</title>
+</head>
+<body>
+
+    <div id="app"></div>
+
+    <script>
+        // MODEL
+        let handlevogn = ["ost", "kjøttdeig", "smør"];
+        let visVogn = false; 
+
+        // VIEW
+        function view() {
+            let output = /*html*/`
+                <button onclick="toggleCart()">Vis handlevogn</button>
+                <button onclick="addToiletPaper()">Legg til dorull</button>
+                <button onclick="removeLastItem()">Legg tilbake siste vare</button>
+
+            `;
+
+            if (visVogn) {
+                output += "<ul>";
+                for (let i = 0; i < handlevogn.length; i++) {
+                    output += `<li>${handlevogn[i]}</li>`;
+                }
+                output += "</ul>";
+            }
+
+            document.getElementById("app").innerHTML = output;
+        }
+
+        // CONTROLLER
+        function toggleCart() {
+            visVogn = !visVogn; 
+            view(); 
+        }
+
+        function addToiletPaper(){
+            handlevogn.push('dorull');
+            view();
+        }
+        
+        function removeLastItem(){
+            handlevogn.pop();
+            view();
+        }
+        
+        view();
+    </script>
+
+</body>
+</html>

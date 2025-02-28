@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="app"></div>
+
+    <script>
+
+        let numbers = [1, 2, 3];
+
+    function view(){
+        let output = '';
+        for (let i = 0; i < numbers.length; i++){
+            output += numbers[i] + "<br>";
+        }
+        document.getElementById("app").innerHTML = output;
+    }
+
+    function controller(){
+        view();
+    }
+
+    controller();
+
+    </script>
+    
+</body>
+</html>

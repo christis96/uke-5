@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+
+    
+
+    <script>
+
+        //MODEL
+        const app = document.getElementById('app');
+        let advice = [
+            "Ta pauser",
+            "Ta seg en gåtur",
+            "Spis noe",
+            "Kjøp et flax-lodd",
+            "Si hei til den første personen du møter på som du ikke kjenner",
+            "Si ja til det første du blir spurt noe av",
+            "Si opp jobben din",
+            "Ta deg en tur på trening",
+        ];
+        let selectedAdvice = "";
+        let tempAdvice = "";
+        let random ;
+
+        //VIEW
+        function view() {
+            let html = /*html*/`
+                <button onclick="giveAdvice()">
+                Gi et råd!
+                </button>
+                <div id="output">
+
+                    ${selectedAdvice ? `<ul><li>Råd: ${selectedAdvice}</li></ul>` : ''} 
+
+                </div>
+                
+            `;
+
+             app.innerHTML = html;
+        }
+
+        //CONTROLLER
+        function giveAdvice(){
+            random = Math.floor(Math.random()*advice.length);
+            tempAdvice = advice[random];
+           
+            while(selectedAdvice === tempAdvice && advice.length > 1){
+                console.log('gåten er lik, henter ny...');
+                random = Math.floor(Math.random()*advice.length);
+                tempAdvice = advice[random];
+
+            }
+
+            selectedAdvice = tempAdvice;            
+            view();
+        }
+
+        view();
+        
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="printVokaler('Hei på deg')">antall vokaler</button>
+    <div id="output"></div>
+
+
+    <script>
+
+        function printVokaler(inputString){
+            let vokaler = "aeiouyæøåAEIOUYÆØÅ";
+            let antallVokaler = 0;
+            for(let index=0; index<=inputString.length; index++){
+                let tegn = inputString.charAt(index);
+                
+                for(let i=0; i<vokaler.length; i++){
+                    if(tegn===vokaler.charAt(i)){
+                        antallVokaler++;
+                        break;
+                    }
+                }
+            }
+            document.getElementById("output").innerHTML="antall vokaler:" + antallVokaler;
+        }
+
+    </script>
+</body>
+</html>

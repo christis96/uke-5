@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="app"></div>
+
+    
+
+    <script>
+
+        //MODEL
+        const app = document.getElementById("app");
+        const emailHasToContain = ["@"];
+        const emailCannotContain = [" "];
+        
+        
+        //VIEW
+        updateView();
+        function updateView(){
+            app.innerHTML = /*html*/ `
+            <input onchange="emailOrNot(this.value)" type="text">
+            
+            
+            
+            `;
+        }
+
+
+
+        //CONTROLLER
+        function emailOrNot(input) {
+            for (emailChar of emailHasToContain) {
+                for (char of input) {
+                    if (char === emailChar) {
+                        console.log(`Input inneholder '${emailChar}'`);
+                        return true;
+                    } 
+                    
+                }
+            }
+            return false;
+        }
+
+
+
+
+
+    </script>
+</body>
+</html>
